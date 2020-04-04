@@ -3,16 +3,23 @@ module.exports = {
     async create(request, response) {
         const { username, password } = request.body;
 
-        const username = await connection('username')
+        const user = await connection('users')
             .where('username', username)
-            .select('')
+            .select('name')
+            .first();
+        
+        const userPassword = await connection('users')
+            .where('password', password)
+            .select('username')
             .first();
 
-        if (!username) {
+        if (!user) {
             return response.status(400).json({ error: 'The username does not exist' });
         }
-        if (!password) {
+        if (!userPassword) {
             return response.status(400).json({ erro: 'The password is wrong.' })
         }
+
+        return response.json(user)
     }
-}
+} 

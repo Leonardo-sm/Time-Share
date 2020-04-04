@@ -9,10 +9,10 @@ const routes = express.Router();
 routes.get('/', (request, response) => {
     response.send("Hello World !!!");
 });
-routes.post('/session', SessionController.create);
-routes.post('/account', AccountController.create);
-routes.post('/incident', IncidentController.create);
-routes.get('/incident', IncidentController.index);
-routes.delete('/incident', IncidentController.delete);
+routes.post('/sessions', SessionController.create);
+routes.post('/accounts', AccountController.create);
+routes.post('/incidents', IncidentController.create);
+routes.get('/incidents', IncidentController.index);
+
 
 module.exports = routes;
