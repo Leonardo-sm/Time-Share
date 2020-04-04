@@ -10,12 +10,12 @@ routes.get('/', (request, response) => {
     response.send("Hello World !!!");
 });
 
-// routes.post('/session', SessionController.create);
+routes.post('/session', SessionController.create);
 routes.post('/account', AccountController.create);
 routes.get('/account', AccountController.index);
 
-// routes.post('/incident', IncidentController.create);
-// routes.get('/incident', IncidentController.index);
-// routes.delete('/incident/:id', IncidentController.delete);
+routes.post('/incident', IncidentController.create);
+routes.get('/incident', IncidentController.index);
+routes.delete('/incident/:id', IncidentController.delete);
 
 module.exports = routes;
