@@ -37,19 +37,19 @@ module.exports= {
     },
 
     async delete(request, response) {
-        const { username } = request.params;
+        const { id } = request.params;
         const user_id = request.headers.authorization;
 
         const incident = await connection('incidents')
-            .where('username', username)
-            .select(user_id)
+            .where('id', id)
+            .select('user_id')
             .first();
 
         if (incident.user_id != user_id) {
             return response.status(401).json({ error: 'Operarion not permitted.' })
         }
 
-        await connection('incidents').where('username', username).delete();
+        await connection('incidents').where('id', id).delete();
 
         return response.status(204).send();
     }
