@@ -45,7 +45,7 @@ module.exports= {
             .select(user_id)
             .first();
 
-        if (incident.user_id != ong_id) {
+        if (incident.user_id != user_id) {
             return response.status(401).json({ error: 'Operarion not permitted.' })
         }
 
