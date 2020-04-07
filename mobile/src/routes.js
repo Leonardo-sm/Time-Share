@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import styles from './styles';
 
@@ -13,6 +13,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import MyProfile from './pages/MyProfile';
+import EditProfile from './pages/EditProfile';
+import MyRequest from './pages/MyProfile/MyRequests';
+import Details from './pages/MyProfile/Details';
 import CreateIncident from './pages/CreateIncident';
 
 
@@ -29,9 +32,20 @@ export default function Routes() {
                         </Stack.Navigator>
                     )}
                 </Stack.Screen>
+
+                <Stack.Screen name="Options">
+                    {() => (
+                        <Stack.Navigator screenOptions={{ headerShown: false, animationEnabled: false }}>
+                            <Stack.Screen name="MyRequest" component={MyRequest} />
+                            <Stack.Screen name="Details" component={Details} />
+                        </Stack.Navigator>
+                    )}
+                </Stack.Screen>
+
                 <Stack.Screen name="Menu" >
                     {() => (
-                        <Drawer.Navigator drawerStyle={styles.drawerMenu} 
+                        <Drawer.Navigator 
+                            drawerStyle={styles.drawerMenu} 
                             drawerContentOptions={{
                                 inactiveTintColor: '#fff',
                                 activeTintColor: '#fff',
