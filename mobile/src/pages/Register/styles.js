@@ -14,7 +14,7 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#ff8269',
+        backgroundColor: '#ffaf69',
         borderBottomEndRadius: 10,
         borderBottomStartRadius: 10,
         width: '100%',
@@ -52,7 +52,7 @@ export default StyleSheet.create({
     },
 
     create: {
-        backgroundColor: '#ff8269',
+        backgroundColor: '#ffaf69',
         height: 35,
         borderRadius: 8,
         width: '77%',
