@@ -1,16 +1,24 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const Tab = createMaterialTopTabNavigator();
+
 
 import Logon from './pages/Logon';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import MyProfile from './pages/MyProfile';
+import EditProfile from './pages/EditProfile';
+import MyRequest from './pages/MyProfile/MyRequests';
+import Details from './pages/MyProfile/Details';
+
 
 
 export default function Routes() {
@@ -26,15 +34,31 @@ export default function Routes() {
                         </Stack.Navigator>
                     )}
                 </Stack.Screen>
+
+                <Stack.Screen name="Options">
+                    {() => (
+                        <Stack.Navigator screenOptions={{ headerShown: false, animationEnabled: false }}>
+                            <Stack.Screen name="MyRequest" component={MyRequest} />
+                            <Stack.Screen name="Details" component={Details} />
+                        </Stack.Navigator>
+                    )}
+                </Stack.Screen>
+
                 <Stack.Screen name="Home" >
                     {() => (
-                        <Drawer.Navigator>
+                        <Drawer.Navigator> 
                             <Drawer.Screen name="Home" component={Home} />
                             <Drawer.Screen name="MyProfile" component={MyProfile} />
+                            <Drawer.Screen name="EditProfile" component={EditProfile} />
+                            
                         </Drawer.Navigator> 
                     )} 
-                </Stack.Screen>              
+                </Stack.Screen>
+                
+               
             </Stack.Navigator>
+            
+
         </NavigationContainer>
     );
 }

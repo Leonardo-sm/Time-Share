@@ -3,7 +3,7 @@ import { View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import api from '../../services/api';
-import logoImg from '../../assets/logo2x.png';
+import logoImg from '../../assets/logo.png';
 
 import styles from './styles';
 
